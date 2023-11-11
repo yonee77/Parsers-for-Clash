@@ -1,9 +1,9 @@
 parsers: # array
-# - reg: ^.*$ 匹配所有订阅，或  - url: https://example.com/profile.yaml 指定订阅
+# - reg: ^.*$ 匹配所有订阅，或  - url: https://example.com/profile.yaml 指定订阅地址
   - reg: ^.*$
   # - reg: [(pptiok2020.com)|(smallstrawberry.com)]
-    # - url: https://apiv2.pptiok2020.com/apiv2/xh79cghfkbjvo2gn?clash=1
-    # - url: https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=15b4d0c4d052242f5e509d381adacf6d
+    # - url: https://xxxx.com/apiv2/xh79cghfkbjvo2gn?clash=1
+    # - url: https://sub1.xxxx.com/api/v1/client/subscribe?token=15b4d0c4d052242f5e509d381adacf6d
   
     # 删除服务商提供的策略组和规则
     code: |
