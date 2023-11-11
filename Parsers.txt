@@ -12,15 +12,15 @@ parsers: # array
   # 建立自己的配置
     yaml:
       prepend-proxy-groups: # 建立策略组
-      - name: 🥷PROXY
+      - name: 🥷快速代理
         type: select
         url: http://www.google.com/generate_204
         interval: 300
         proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
+         - 🚀自动选择
+         - 🎛负载均衡
+         - 🕹故障切换
+         - 👆手动选择
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -30,12 +30,12 @@ parsers: # array
          - 🇺🇸美国
          - 👨‍🎤其他
 
-      - name: 👆SELECT
+      - name: 👆手动选择
         type: select
         proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
+         - 🚀自动选择
+         - 🎛负载均衡
+         - 🕹故障切换
          - ⏳YouTube-Url-Test
          - DIRECT
          - 🇭🇰香港
@@ -46,19 +46,19 @@ parsers: # array
          - 🇺🇸美国
          - 👨‍🎤其他
 
-      - name: 🚀URL-TEST
+      - name: 🚀自动选择
         type: url-test
         url: http://www.google.com/generate_204
         interval: 120
         lazy: true
         tolerance: 100
         
-      - name: 🎛LOAD-BALANCE
+      - name: 🎛负载均衡
         type: load-balance
         url: http://www.gstatic.com/generate_204
         interval: 600
 
-      - name: 🕹Fallback
+      - name: 🕹故障切换
         type: fallback
         url: http://www.gstatic.com/generate_204
         interval: 60
@@ -69,11 +69,11 @@ parsers: # array
       - name: 🎎YouTube
         type: select
         proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
+         - 🚀自动选择
+         - 🎛负载均衡
+         - 🕹故障切换
          - ⏳YouTube-Url-Test
-         - 👆SELECT
+         - 👆手动选择
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -96,10 +96,10 @@ parsers: # array
       - name: 📽Netflix
         type: select
         proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
+         - 🚀自动选择
+         - 🎛负载均衡
+         - 🕹故障切换
+         - 👆手动选择
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -112,10 +112,10 @@ parsers: # array
       - name: 🤖OpenAI
         type: select
         proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
+         - 🚀自动选择
+         - 🎛负载均衡
+         - 🕹故障切换
+         - 👆手动选择
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -128,10 +128,10 @@ parsers: # array
       - name: 🔍Bing
         type: select
         proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
+         - 🚀自动选择
+         - 🎛负载均衡
+         - 🕹故障切换
+         - 👆手动选择
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -144,10 +144,10 @@ parsers: # array
       - name: 🚅Google
         type: select
         proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
+         - 🚀自动选择
+         - 🎛负载均衡
+         - 🕹故障切换
+         - 👆手动选择
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -160,10 +160,10 @@ parsers: # array
       - name: 🛀Bilibiliintl
         type: select
         proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
+         - 🚀自动选择
+         - 🎛负载均衡
+         - 🕹故障切换
+         - 👆手动选择
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -176,10 +176,10 @@ parsers: # array
       - name: 🦤Twitter
         type: select
         proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
+         - 🚀自动选择
+         - 🎛负载均衡
+         - 🕹故障切换
+         - 👆手动选择
          - DIRECT
          - 🇭🇰香港
          - 🐳台湾
@@ -194,7 +194,7 @@ parsers: # array
         proxies:
             - REJECT
             - DIRECT
-            - 🥷PROXY
+            - 🥷快速代理
                
       - name: 🇭🇰香港
         type: url-test
@@ -244,9 +244,9 @@ parsers: # array
           # - 节点名称或其他分组套娃
           
       commands:
-        - proxy-groups.(🚀URL-TEST).proxies=[]proxyNames
-        - proxy-groups.(🎛LOAD-BALANCE).proxies=[]proxyNames
-        - proxy-groups.(🕹Fallback).proxies=[]proxyNames
+        - proxy-groups.(🚀自动选择).proxies=[]proxyNames
+        - proxy-groups.(🎛负载均衡).proxies=[]proxyNames
+        - proxy-groups.(🕹故障切换).proxies=[]proxyNames
         - proxy-groups.(⏳YouTube-Url-Test).proxies=[]proxyNames
         - proxy-groups.🇭🇰香港.proxies=[]proxyNames|港|香港|🇭🇰|HK|Hong Kong # 向指定策略组添加订阅中的节点名，可使用正则过滤
         - proxy-groups.🐳台湾.proxies=[]proxyNames|台|台湾|新北|彰化|TW|Taiwan
@@ -277,36 +277,36 @@ parsers: # array
         
   # 添加规则
       prepend-rules: # 规则由上往下遍历，如上面规则已经命中，则不再往下处理
-        - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
-        - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
+        - DOMAIN-SUFFIX,jdev.tw,🥷快速代理
+        - DOMAIN-SUFFIX,omnivore.app,🥷快速代理
         - RULE-SET,youtube,🎎YouTube
         - RULE-SET,netflix,📽Netflix
         - RULE-SET,openai,🤖OpenAI
         - RULE-SET,bing,🔍Bing
         - RULE-SET,bilibiliintl,🛀Bilibiliintl
         - RULE-SET,twitter,🦤Twitter
-        - RULE-SET,github,🥷PROXY
+        - RULE-SET,github,🥷快速代理
         - RULE-SET,applications,DIRECT
         - DOMAIN,clash.razord.top,DIRECT
         - DOMAIN,yacd.haishan.me,DIRECT
         - RULE-SET,private,DIRECT
         - RULE-SET,reject,🚦AD
         - RULE-SET,icloud,DIRECT #
-        - RULE-SET,apple,DIRECT # 这三个为国内可直连地址，如果希望走代理改为🥷PROXY
+        - RULE-SET,apple,DIRECT # 这三个为国内可直连地址，如果希望走代理改为🥷快速代理
         - RULE-SET,google,🚅Google # 
         - RULE-SET,googledrive,🚅Google # 
         - RULE-SET,googlesearch,🚅Google # 
-        - RULE-SET,tld-not-cn,🥷PROXY
-        - RULE-SET,gfw,🥷PROXY
-        - RULE-SET,greatfire,🥷PROXY
-        - RULE-SET,telegramcidr,🥷PROXY
+        - RULE-SET,tld-not-cn,🥷快速代理
+        - RULE-SET,gfw,🥷快速代理
+        - RULE-SET,greatfire,🥷快速代理
+        - RULE-SET,telegramcidr,🥷快速代理
         - RULE-SET,lancidr,DIRECT
         - RULE-SET,cncidr,DIRECT
         - GEOIP,,DIRECT
         - GEOIP,CN,DIRECT
         - RULE-SET,direct,DIRECT
-        - RULE-SET,proxy,🥷PROXY
-        - MATCH,👆SELECT # ⭐️⭐️规则之外的，在这里来修改是白名单模式还是黑名单模式，具体在“👆SELECT”选择代理或直连。
+        - RULE-SET,proxy,🥷快速代理
+        - MATCH,👆手动选择 # ⭐️⭐️规则之外的，在这里来修改是白名单模式还是黑名单模式，具体在“👆手动选择”选择代理或直连。
 
       # 添加规则集
         # DOMAIN-SUFFIX：域名后缀匹配
